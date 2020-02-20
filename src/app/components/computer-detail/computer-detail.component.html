@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-4 offset-4">
+
+        <ng-container *ngIf="!this.isLoading">
+            <div *ngIf="computer" class="text-center">
+
+                <div class="card my-5" style="width: 100%;">
+                    <h1 class="card-header"> {{ computer.modele }}</h1>
+                    <div class="py-3">
+                        <div><span>Marque :</span> {{ computer.marque }}</div>
+                        <div><span>Type :</span> {{ computer.type }}</div>
+                        <div><span>Categorie :</span> {{ computer.categorie }}</div>
+                        <div><span>Date d'achat :</span> {{ computer.prixAchat }}</div>
+                        <div><span>Date de vente :</span> {{ computer.prixVente }}</div>
+                        <div><span>Date d'entrée en stock :</span> {{ computer.dateEntryStock| date : 'd/MM/y' }}</div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!computer">
+                Cet ordianteur n'est pas en stock chez nous
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="isLoading">
+            <fa-icon [spin]="true" [icon]="faSpinner"></fa-icon>
+        </ng-container>
+    </div>
+</div>

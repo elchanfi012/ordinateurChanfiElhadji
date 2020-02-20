@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <ng-container *ngIf="!isLoading">
+            <div class="card my-5" style="width: 100%;">
+                <h1 class="card-header text-center"> Modification d'un ordinateur</h1>
+
+                <form #computerForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group px-4 pt-3">
+                        <label for="modele">Modèle :</label>
+                        <input type="text" class="form-control" id="modele" name="modele" required
+                            [(ngModel)]="computer.modele" #modele="ngModel">
+
+                        <div [hidden]="modele.valid" class="alert alert-danger mt-1">
+                            Le modèle de l'ordinateur est requis.
+                        </div>
+                    </div>
+
+                    <div class="form-group px-4">
+                        <div>
+                            <label for="marque">Marque : </label>
+                        </div>
+                        <div class="row" >
+                            <div class="col-3" *ngFor="let marque of marqueDispo">
+                                <input type="radio" id="{{ marque }}" class="marque" name="marque" [value]="marque" required
+                                        [(ngModel)]="computer.marque" #marques="ngModel">
+                                <label for="{{ marque }}" class="pl-2"> {{ marque }} </label>
+                            </div>
+                        </div>
+
+                        <div [hidden]="computerForm.controls.marque?.valid" class="alert alert-danger mt-1">
+                            La marque de l'ordinateur est requise.
+                        </div>
+                    </div>
+
+                    <div class="form-group  px-4">
+                        <label for="type">Type :</label>
+                        <select class="form-control" id="type" required [(ngModel)]="computer.type" name="type"
+                            #type="ngModel">
+                            <option *ngFor="let type of typeDispo" [value]="type">{{ type }}</option>
+                        </select>
+                        <div [hidden]="type.valid" class="alert alert-danger mt-1">
+                            Le type de l'ordinateur est requis.
+                        </div>
+                    </div>
+                    <div class="form-group px-4">
+                        <div>
+                            <label for="categorie">Catégorie : </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-4" *ngFor="let categorie of categorieDispo">
+                                <input type="radio" id="{{ categorie }}" class="categorie" name="categorie" [value]="categorie" required
+                                        [(ngModel)]="computer.categorie" #categories="ngModel">
+                                <label for="{{ categorie }}" class="pl-2"> {{ categorie }} </label>
+                            </div>
+                        </div>
+
+                        <div [hidden]="computerForm.controls.categorie?.valid" class="alert alert-danger mt-1">
+                            La catégorie de l'ordinateur est requise.
+                        </div>
+                    </div>
+                    <div class="form-group px-4">
+                        <label for="prixAchat">Prix d'achat :</label>
+                        <input type="number" class="form-control" id="prixAchat" name="prixAchat" step="0.01" required
+                            [(ngModel)]="computer.prixAchat" #prixAchat="ngModel">
+                        <div [hidden]="prixAchat.valid" class="alert alert-danger mt-1">
+                            Le prix d'achat de l'ordinateur est requis.
+                        </div>
+                    </div>
+                    <div class="form-group px-4">
+                        <label for="prixVente">Prix de vente :</label>
+                        <input type="number" class="form-control" id="prixVente" name="prixVente" step="0.01" required
+                            [(ngModel)]="computer.prixVente" #prixVente="ngModel">
+                        <div [hidden]="prixVente.valid" class="alert alert-danger mt-1">
+                            Le prix de vente de l'ordinateur est requis.
+                        </div>
+                    </div>
+                    <div class="text-center pb-3">
+                        <input class="btn btn-success" id="submitBtn" type="submit" value="Valider"
+                            [disabled]="!computerForm.valid">
+                    </div>
+                </form>
+
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+            <fa-icon [spin]="true" [icon]="faSpinner"></fa-icon>
+        </ng-container>
+    </div>
+</div>

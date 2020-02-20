@@ -1,0 +1,34 @@
+{
+  "computers": [
+    {
+      "id": 1,
+      "modele": "Latitude 3500 - 15.6",
+      "marque": "dell",
+      "type": "portable",
+      "categorie": "bureautique",
+      "prixAchat": 120.88,
+      "prixVente": 300.1,
+      "dateEntryStock": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "modele": "Pavillon-500",
+      "marque": "hp",
+      "type": "tablette hybride",
+      "categorie": "premier prix",
+      "prixAchat": 122.54,
+      "prixVente": 157.265,
+      "dateEntryStock": "2020-02-20T12:25:24.852Z"
+    },
+    {
+      "id": 3,
+      "modele": "VivoBook S15 S510UF",
+      "marque": "asus",
+      "type": "fixe",
+      "categorie": "gaming",
+      "prixAchat": 220.54,
+      "prixVente": 551.87,
+      "dateEntryStock": "2020-02-20T14:14:43.773Z"
+    }
+  ]
+}

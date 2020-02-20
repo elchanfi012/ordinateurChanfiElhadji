@@ -1,0 +1,21 @@
+a{
+    color: grey;
+}
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.bg-thead{
+    background-color: aliceblue;
+}
+
+.deleteComputer{
+    cursor: pointer;
+    color: red;
+}
+
+.deleteComputer:hover{
+    color: tomato;
+    
+}
